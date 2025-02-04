@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">IoTApp</string>
+    <string name="initial_state">Waiting for messages...</string>
+    <string name="devices">Devices</string>
+    <string name="chat">Chat</string>
+    <string name="signal_strength">Signal strength: 100dbm</string>
+    <string name="connected_to_device">Connected to Device 1</string>
+    <string name="send_signals">Send signals</string>
+    <string name="sos">SOS</string>
+    <string name="select_message_type">Select Message Type</string>
+    <string name="your_current_coordinates">Your current coordinates</string>
+    <string name="insert_a_message">Type a message</string>
+    <string name="set_frequency">Set frequency</string>
+    <string name="frequency_minutes">Frequency (minutes)</string>
+    <string name="default_frequency">Frequency: 1 minute</string>
+    <string name="send_message">Send Message</string>
+    <string name="select_a_status">Select a status</string>
+    <string name="list_of_users">List of users</string>
+    <string name="close">close</string>
+    <string-array name="message_types">
+        <item>Coordinate Sharing</item>
+        <item>Status Update</item>
+    </string-array>
+    <string-array name="user_statuses">
+        <item>OK</item>
+        <item>Need Urgent Help</item>
+        <item>In Danger</item>
+        <item>Lost</item>
+        <item>Safe</item>
+        <item>Need Medical Help</item>
+        <item>Need Evacuation</item>
+        <item>Stuck</item>
+        <item>Out of Battery</item>
+        <item>Need Water</item>
+        <item>Need Food</item>
+        <item>Going offline</item>
+        <item>Online</item>
+        <item>Phone problems</item>
+        <item>SOS</item>
+    </string-array>
+</resources>
