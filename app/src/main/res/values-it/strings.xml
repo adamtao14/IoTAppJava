@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LoRescue</string>
+    <string name="initial_state">In attesa di messaggi…</string>
+    <string name="devices">Dispositivi</string>
+    <string name="chat">Chat</string>
+    <string name="signal_strength">Segnale: 100dbm</string>
+    <string name="connected_to_device">Connesso al Dispositivo 1</string>
+    <string name="send_signals">Invia segnali</string>
+    <string name="sos">SOS</string>
+    <string name="select_message_type">Seleziona tipo di messaggio</string>
+    <string name="your_current_coordinates">Le tue coordinate attuali</string>
+    <string name="insert_a_message">Scrivi un messaggio</string>
+    <string name="set_frequency">Imposta frequenza</string>
+    <string name="frequency_minutes">Frequenza (minuti)</string>
+    <string name="default_frequency">Frequenza: 1 minuto</string>
+    <string name="send_message">Invia Messaggio</string>
+    <string name="select_a_status">Seleziona uno stato</string>
+    <string name="list_of_users">Lista degli utenti</string>
+    <string name="close">chiudi</string>
+    <string name="click_to_connect">Non connesso</string>
+    <string name="connected_to">Connesso a %1$s</string>
+    <string name="id">ID: %1$s</string>
+    <string name="select_coordinate_sharing">Seleziona condivisione coordinate</string>
+    <string name="waiting_for_location">In attesa della localizzazione…</string>
+    <string-array name="message_types">
+        <item>Condivisione coordinate</item>
+        <item>Aggiornamento Stato</item>
+    </string-array>
+    <string-array name="user_statuses">
+        <item>OK</item>
+        <item>Ho bisogno di aiuto urgente</item>
+        <item>In pericolo</item>
+        <item>Perso</item>
+        <item>Al sicuro</item>
+        <item>Ho bisogno di aiuto medico</item>
+        <item>Ho bisogno di evacuazione</item>
+        <item>Bloccato</item>
+        <item>Batteria scarica</item>
+        <item>Ho bisogno di acqua</item>
+        <item>Ho bisogno di cibo</item>
+        <item>Vado offline</item>
+        <item>Online</item>
+        <item>Problemi con il telefono</item>
+        <item>SOS</item>
+    </string-array>
+</resources>

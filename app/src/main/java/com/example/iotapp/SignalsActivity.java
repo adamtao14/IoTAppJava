@@ -110,7 +110,7 @@ public class SignalsActivity extends AppCompatActivity implements BluetoothManag
         // Default for status update dropdown
         spinnerStatus.setEnabled(false);
         // Default for current location
-        currentCoordinates.setText("Select Coordinate sharing");
+        currentCoordinates.setText(R.string.waiting_for_location);
 
         spinnerMessageType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -158,9 +158,9 @@ public class SignalsActivity extends AppCompatActivity implements BluetoothManag
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 currentFrequency = Math.max(progress, 1); // Minimum 1 minute
                 if(currentFrequency == 1){
-                    textFrequency.setText("Frequency: " + currentFrequency + " minute");
+                    textFrequency.setText(String.format("Frequency: %d minute", currentFrequency));
                 }else{
-                    textFrequency.setText("Frequency: " + currentFrequency + " minutes");
+                    textFrequency.setText(String.format("Frequency: %d minutes", currentFrequency));
                 }
             }
 
@@ -246,9 +246,9 @@ public class SignalsActivity extends AppCompatActivity implements BluetoothManag
                 if (lastKnownLocation != null) {
                     latitude = lastKnownLocation.getLatitude();
                     longitude = lastKnownLocation.getLongitude();
-                    currentCoordinates.setText(latitude + " " + longitude); // Display cached location
+                    currentCoordinates.setText(String.format("%s %s", latitude, longitude)); // Display cached location
                 } else {
-                    currentCoordinates.setText("Waiting for location...");
+                    currentCoordinates.setText(R.string.waiting_for_location);
                 }
             }
 
@@ -314,7 +314,7 @@ public class SignalsActivity extends AppCompatActivity implements BluetoothManag
     private void stopLocationUpdates() {
         if (locationManager != null && locationListener != null) {
             locationManager.removeUpdates(locationListener);  // Stop receiving location updates
-            currentCoordinates.setText("Select Coordinate sharing");  // Clear the coordinates when stopping updates
+            currentCoordinates.setText(R.string.select_coordinate_sharing);  // Clear the coordinates when stopping updates
         }
     }
 
@@ -368,13 +368,13 @@ public class SignalsActivity extends AppCompatActivity implements BluetoothManag
                         if(coordinates != null){
                             // Id already exists so update them
                             AppDatabase.getInstance(this).coordinateDao().updateCoordinatesById(receivedMessage.getId(), Double.valueOf(latitude), Double.valueOf(longitude));
-                            Log.println(Log.INFO, "HOME_ACTIVITY", "Updating  coordinates");
+
 
                         }else{
                             // Create them
                             Coordinates newCoordinates = new Coordinates(receivedMessage.getId(), Double.valueOf(latitude), Double.valueOf(longitude));
                             AppDatabase.getInstance(this).coordinateDao().insert(newCoordinates);
-                            Log.println(Log.INFO, "HOME_ACTIVITY", "Inserted new coordinates");
+
                         }
                     }
                 }).start();

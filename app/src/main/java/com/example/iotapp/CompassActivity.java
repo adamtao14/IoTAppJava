@@ -210,7 +210,7 @@ public class CompassActivity extends AppCompatActivity implements BluetoothManag
 
         return locations;
     }
-
+    /*
     private List<CompassView.UserLocation> generateNearbyLocations(CompassView.UserLocation location, int count) {
         List<CompassView.UserLocation> locations = new ArrayList<>();
 
@@ -229,6 +229,7 @@ public class CompassActivity extends AppCompatActivity implements BluetoothManag
 
         return locations;
     }
+    */
 
     @Override
     public void onConnectionSuccess(String deviceName) {
@@ -262,13 +263,11 @@ public class CompassActivity extends AppCompatActivity implements BluetoothManag
                         if(coordinates != null){
                             // Id already exists so update them
                             AppDatabase.getInstance(this).coordinateDao().updateCoordinatesById(receivedMessage.getId(), Double.valueOf(latitude), Double.valueOf(longitude));
-                            Log.println(Log.INFO, "HOME_ACTIVITY", "Updating  coordinates");
 
                         }else{
                             // Create them
                             Coordinates newCoordinates = new Coordinates(receivedMessage.getId(), Double.valueOf(latitude), Double.valueOf(longitude));
                             AppDatabase.getInstance(this).coordinateDao().insert(newCoordinates);
-                            Log.println(Log.INFO, "HOME_ACTIVITY", "Inserted new coordinates");
                         }
                     }
                 }).start();

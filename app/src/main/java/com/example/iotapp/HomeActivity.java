@@ -84,7 +84,7 @@ public class HomeActivity extends AppCompatActivity implements BluetoothManager.
         }
 
         // Set initial text for connectionStatus
-        connectionStatus.setText("Click to connect");
+        connectionStatus.setText(getString(R.string.click_to_connect));
 
         // Set up click listener for connectionStatus
         connectionStatus.setOnClickListener(v -> {
@@ -172,7 +172,7 @@ public class HomeActivity extends AppCompatActivity implements BluetoothManager.
     // BluetoothConnectionListener implementations
     @Override
     public void onConnectionSuccess(String deviceName) {
-        connectionStatus.setText("Connected to " + deviceName);
+        connectionStatus.setText(getString(R.string.connected_to, deviceName));
         enableMenu();
     }
 
@@ -183,7 +183,7 @@ public class HomeActivity extends AppCompatActivity implements BluetoothManager.
 
     @Override
     public void onDisconnected() {
-        connectionStatus.setText("Click to connect");
+        connectionStatus.setText(R.string.click_to_connect);
         disableMenu();
     }
 
@@ -203,13 +203,13 @@ public class HomeActivity extends AppCompatActivity implements BluetoothManager.
                         if(coordinates != null){
                             // Id already exists so update them
                             AppDatabase.getInstance(this).coordinateDao().updateCoordinatesById(receivedMessage.getId(), Double.valueOf(latitude), Double.valueOf(longitude));
-                            Log.println(Log.INFO, "HOME_ACTIVITY", "Updating  coordinates");
+
 
                         }else{
                             // Create them
                             Coordinates newCoordinates = new Coordinates(receivedMessage.getId(), Double.valueOf(latitude), Double.valueOf(longitude));
                             AppDatabase.getInstance(this).coordinateDao().insert(newCoordinates);
-                            Log.println(Log.INFO, "HOME_ACTIVITY", "Inserted new coordinates");
+
                         }
                     }
                 }).start();

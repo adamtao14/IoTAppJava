@@ -251,7 +251,7 @@ public class MessageListActivity extends AppCompatActivity implements BluetoothM
                 holder.messageTextView.setTextColor(Color.rgb(26, 92, 43));
             }
             if(!corrupted){
-                holder.imeiTextView.setText("ID: " + message.getId());
+                holder.imeiTextView.setText(getString(R.string.id, message.getId()));
                 long millis = Long.parseLong(message.getTimestamp());
                 java.util.Date date = new java.util.Date(millis);
                 holder.timestampTextView.setText(date.toString());

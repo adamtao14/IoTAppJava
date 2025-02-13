@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">IoTApp</string>
-    <string name="initial_state">Waiting for messages...</string>
+    <string name="app_name">LoRescue</string>
+    <string name="initial_state">Waiting for messages…</string>
     <string name="devices">Devices</string>
     <string name="chat">Chat</string>
     <string name="signal_strength">Signal strength: 100dbm</string>
@@ -17,6 +17,11 @@
     <string name="select_a_status">Select a status</string>
     <string name="list_of_users">List of users</string>
     <string name="close">close</string>
+    <string name="click_to_connect">Not connected</string>
+    <string name="connected_to">Connected to %1$s</string>
+    <string name="id">ID: %1$s</string>
+    <string name="select_coordinate_sharing">Select Coordinate sharing</string>
+    <string name="waiting_for_location">Waiting for location...</string>
     <string-array name="message_types">
         <item>Coordinate Sharing</item>
         <item>Status Update</item>
