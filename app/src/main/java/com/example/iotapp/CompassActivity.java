@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -79,7 +80,7 @@ public class CompassActivity extends AppCompatActivity implements BluetoothManag
         compassView.setCurrentLat(userLocation.getLatitude());
         compassView.setCurrentLon(userLocation.getLongitude());
 
-        // Generate dummy user locations near the current location
+        // Generate fake user locations near the current location for testing
         //userLocations = generateNearbyLocations(userLocation, 3); // Generate 3 test locations
         userLocations = getUsersCoordinates();
         compassView.updateUserLocations(userLocations);
@@ -179,11 +180,11 @@ public class CompassActivity extends AppCompatActivity implements BluetoothManag
 
     private final LocationListener locationListener = new LocationListener() {
         @Override
-        public void onLocationChanged(Location location) {
+        public void onLocationChanged(@NonNull Location location) {
 
             if (userLocation != null) {
                 // Call setUserLocation with latitude and longitude
-                compassView.setUserLocation(userLocation.getLatitude(), userLocation.getLongitude());
+                compassView.setUserLocation(location.getLatitude(), location.getLongitude());
             }
         }
 
@@ -210,26 +211,7 @@ public class CompassActivity extends AppCompatActivity implements BluetoothManag
 
         return locations;
     }
-    /*
-    private List<CompassView.UserLocation> generateNearbyLocations(CompassView.UserLocation location, int count) {
-        List<CompassView.UserLocation> locations = new ArrayList<>();
 
-        double baseLat = location.getLatitude();
-        double baseLon = location.getLongitude();
-
-        for (int i = 0; i < count; i++) {
-            double offsetLat = (Math.random() - 0.5) * 0.01; // Random offset within ~1 km
-            double offsetLon = (Math.random() - 0.5) * 0.01; // Random offset within ~1 km
-
-            double lat = baseLat + offsetLat;
-            double lon = baseLon + offsetLon;
-            CompassView.UserLocation loc = new CompassView.UserLocation(SignalsActivity.generateUniqueId(), lat, lon);
-            locations.add(loc);
-        }
-
-        return locations;
-    }
-    */
 
     @Override
     public void onConnectionSuccess(String deviceName) {

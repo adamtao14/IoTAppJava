@@ -116,7 +116,7 @@ public class SignalsActivity extends AppCompatActivity implements BluetoothManag
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selectedMessageType = (String) adapterView.getItemAtPosition(i);
-                if(selectedMessageType.equals("Status Update")){
+                if(selectedMessageType.equals("Status Update") || selectedMessageType.equals("Aggiornamento stato")){
                     spinnerStatus.setEnabled(true);
                     stopLocationUpdates();
                 }else{
@@ -183,7 +183,7 @@ public class SignalsActivity extends AppCompatActivity implements BluetoothManag
                 String type;
                 String payload;
 
-                if(messageType.equals("Status Update")){
+                if(messageType.equals("Status Update") || messageType.equals("Aggiornamento stato")){
                     type = "2";
                     payload = String.format("%d", currentStatusIndex);
                 }else{

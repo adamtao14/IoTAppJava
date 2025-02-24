@@ -172,19 +172,25 @@ public class HomeActivity extends AppCompatActivity implements BluetoothManager.
     // BluetoothConnectionListener implementations
     @Override
     public void onConnectionSuccess(String deviceName) {
-        connectionStatus.setText(getString(R.string.connected_to, deviceName));
-        enableMenu();
+        runOnUiThread(() -> {
+            connectionStatus.setText(getString(R.string.connected_to, deviceName));
+            enableMenu();
+        });
     }
 
     @Override
     public void onConnectionFailed(String errorMessage) {
-        Toast.makeText(this, "Connection failed: " + errorMessage, Toast.LENGTH_SHORT).show();
+        runOnUiThread(() -> {
+            Toast.makeText(this, "Connection failed: " + errorMessage, Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override
     public void onDisconnected() {
-        connectionStatus.setText(R.string.click_to_connect);
-        disableMenu();
+        runOnUiThread(() -> {
+            connectionStatus.setText(R.string.click_to_connect);
+            disableMenu();
+        });
     }
 
     @Override

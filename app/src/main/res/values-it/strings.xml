@@ -25,7 +25,7 @@
     <string name="waiting_for_location">In attesa della localizzazione…</string>
     <string-array name="message_types">
         <item>Condivisione coordinate</item>
-        <item>Aggiornamento Stato</item>
+        <item>Aggiornamento stato</item>
     </string-array>
     <string-array name="user_statuses">
         <item>OK</item>
